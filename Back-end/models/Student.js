@@ -20,7 +20,6 @@ const studentSchema = mongoose.Schema({
       },
     courses_Enrolled:{type:Array},
     level:{type:String},
-    is_Student:{type:Boolean},
     profile_Img:{type:String},
     adminRole:{type:Boolean,default:false},
     theme:{type:String}
@@ -47,6 +46,6 @@ studentSchema.pre('save', async function(next) {
       }
       throw Error('incorrect password');
     }
-    throw Error('incorrect email');
+    //throw Error('incorrect email');
   };
 module.exports = mongoose.model('students',studentSchema)

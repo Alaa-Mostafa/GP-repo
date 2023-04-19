@@ -9,7 +9,7 @@ module.exports = (req,res,nxt) => {
     try{
         const decodedPayload = jwt.verify(token , "token_key_secret");
         //check user role(Admin or not)
-        if(!decodedPayload.adminRole) res.status(401).send("Access Denied..")
+        if(!decodedPayload.adminRole) return res.status(401).send("Access Denied..")
         nxt()
     }
     catch(err){

@@ -34,7 +34,6 @@ let signup = async (req, res) => {
 /////////////Login//////////////////
 let login = async (req, res) => {
   const { email, password} = req.body;
-
   try {
     //check email in admin 
   const admin = await adminModel.findOne({email:req.body.email})
@@ -52,6 +51,7 @@ let login = async (req, res) => {
     //res.json(token)
     res.status(201).json({message:"Ok"});
    }
+
     else if (admin !=null){
       const token = createToken(admin._id ,admin.email, admin.adminRole); 
       res.header({"x-auth-token":token})

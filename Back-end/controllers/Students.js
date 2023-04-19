@@ -76,9 +76,9 @@ let updateStudentByEmail =  async(req,res) => {
 
 //Delete Student
 let deleteStudent =  async(req,res) => {
-    let updataStudent = req.body;
+  
     try{
-        let deleteStd = await stdModel.findOneAndDelete(req.params.email,updataStudent)
+        let deleteStd = await stdModel.findOneAndDelete(req.params.email)
         if(deleteStd){res.status(200).json({message:"deleted"})}
         else{res.status(404).send("Student not found")}
     } 
