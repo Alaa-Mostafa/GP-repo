@@ -19,13 +19,20 @@ const createToken = (id, email, adminRole) => {
 
 //signup
 let signup = async (req, res) => {
+  var foundEmail = await stdModel.findOne({email:req.body.email}) 
+if(foundEmail){res.send("this email Already Exist")}
   try {
-    const user = await stdModel.create(req.body);
-    const token = createToken(user._id, user.email, user.adminRole);
-    res.header({ "x-auth-token": token });
+     let std = new stdModel(req.body)
+     await std.save();  
+     
+   //create token
+    const token = createToken(std._id , std.email, std.adminRole);
+    res.header({"x-auth-token":token})
 
-    res.status(201).json({ message: "Ok" });
-  } catch (err) {
+    res.status(200).send("signup successfully");
+    
+  }
+   catch (err) {
     for (let e in err.errors) {
       console.log(err.errors[0].message);
       res.status(400).send("Bad Request .. Some Fields");
@@ -45,6 +52,7 @@ let login = async (req, res) => {
 
     if (!student && !admin)
       return res.status(400).send("Invalid email or password");
+      
     if (student != null) {
       let std = await stdModel.login(email, password);
       //  create token

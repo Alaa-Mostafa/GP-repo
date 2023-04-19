@@ -35,7 +35,7 @@ const adminSchema = new mongoose.Schema({
 adminSchema.statics.login = async function(email, password) {
   const user = await this.findOne({ email });
   //check email
-  //if(!user) return resizeBy.status(400).send("Invalid email or password");
+  //if(!user) return res.status(400).send("Invalid email or password");
   if (user) {
     const auth = await bcrypt.compare(password, user.password);
     if (auth) {
@@ -43,7 +43,7 @@ adminSchema.statics.login = async function(email, password) {
     }
     throw Error('incorrect password');
   }
-  throw Error('incorrect email');
+ // throw Error('incorrect email');
 };
 
 const Admin = mongoose.model('admins', adminSchema);

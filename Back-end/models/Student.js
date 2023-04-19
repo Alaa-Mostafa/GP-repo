@@ -38,7 +38,7 @@ studentSchema.pre('save', async function(next) {
   studentSchema.statics.login = async function(email, password) {
     const user = await this.findOne({ email });
     //check email
-    //if(!user) return resizeBy.status(400).send("Invalid email or password");
+    //if(!user) return res.status(400).send("Invalid email or password");
     if (user) {
       const auth = await bcrypt.compare(password, user.password);
       if (auth) {
