@@ -14,7 +14,7 @@ let getAllStudents = async(req,res) => {
     catch(err){
         for(let e in err.errors){
            console.log(err.errors[0].message);
-           res.status(400).send("Bad Request .. Some Fields")
+           res.status(400).json({message:"Bad Request .. Some Fields"})
         }
     }
 }
@@ -25,13 +25,13 @@ let getStudentByEmail = async(req,res) => {
    try{
     const student = await stdModel.findOne({email:stdEmail},{_id:0,__v:0,password:0})
     //const student = await stdModel.findById(req.params.studentId)
-    if(!student) return res.status(400).send("Student not found")
+    if(!student) return res.status(400).json({message:"Student not found"})
     res.status(200).json(student)
    }
    catch(err){
     for(let e in err.errors){
        console.log(err.errors[0].message);
-       res.status(400).send("Bad Request .. Some Fields")
+       res.status(400).json({message:"Bad Request .. Some Fields"})
     }
 }
 }
@@ -40,7 +40,7 @@ let getStudentByEmail = async(req,res) => {
 let createStudent = async(req,res) =>{
 
         var foundEmail = await stdModel.findOne({email:req.body.email}) 
-        if(foundEmail){res.send("this email Already Exist")}
+        if(foundEmail){res.json({message:"this email Already Exist"})}
         else{
             console.log(req.file)
             let profile_img ;
@@ -53,7 +53,7 @@ let createStudent = async(req,res) =>{
             
             })
         await std.save();   
-        res.status(200).send("Added successfully")
+        res.status(200).json({message:"Added successfully"})
         }
 
 }
@@ -64,12 +64,12 @@ let updateStudentByEmail =  async(req,res) => {
    try{
        let newStd = await stdModel.findOneAndUpdate(req.params.email,updataStudent)
        if(newStd){res.status(200).json({message:"updated"})}
-       else{res.status(404).send("Student not found")}
+       else{res.status(404).json({message:"Student not found"})}
    }
    catch(err){
        for(let e in err.errors){
           console.log(err.errors[0].message);
-          res.status(400).send("Bad Request .. Some Fields")
+          res.status(400).json({message:"Bad Request .. Some Fields"})
        }
    }
 }
@@ -80,12 +80,12 @@ let deleteStudent =  async(req,res) => {
     try{
         let deleteStd = await stdModel.findOneAndDelete(req.params.email)
         if(deleteStd){res.status(200).json({message:"deleted"})}
-        else{res.status(404).send("Student not found")}
+        else{res.status(404).json({message:"Student not found"})}
     } 
     catch(err){
         for(let e in err.errors){
            console.log(err.errors[0].message);
-           res.status(400).send("Bad Request .. Some Fields")
+           res.status(400).json({message:"Bad Request .. Some Fields"})
         }
     }
 }

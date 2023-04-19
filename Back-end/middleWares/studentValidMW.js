@@ -8,6 +8,6 @@ module.exports = (req,res,nxt) =>{
         nxt();
     }
     else{
-        res.status(403).send("forbidden Command")
+        res.status(403).json({message:"forbidden Command"})
     }
 }
