@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from 'src/app/Services/themes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -9,7 +10,7 @@ import { ThemeService } from 'src/app/Services/themes.service';
 
 export class CoursesComponent implements OnInit {
   
-  constructor(private theme_service: ThemeService){}
+  constructor(private _router:Router, private theme_service: ThemeService){}
 
   theme:any;
 
@@ -23,5 +24,9 @@ export class CoursesComponent implements OnInit {
         this.background_img_url = "assets/themes/" + this.theme['name'] + "/courses_tracks_bg.jpg";
       }
     });
+  }
+
+  view_course_details(){
+    this._router.navigate([`courses/5`])
   }
 }

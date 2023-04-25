@@ -12,7 +12,7 @@
         <input class="w-100 rounded-5" id="email" type="email" formControlName="email" [ngStyle]="{'border-color': loginForm.controls['email'].errors && loginForm.controls['email'].touched?'red':theme['color']}">
         <div *ngIf="loginForm.controls['email'].errors && loginForm.controls['email'].touched" class="text-danger fs-6">
           <p *ngIf="loginForm.controls['email'].errors?.['required']">Email is required</p>
-          <p *ngIf="loginForm.controls['email'].errors?.['email']">should be valid email</p>
+          <p *ngIf="loginForm.controls['email'].errors?.['pattern']">should be valid email</p>
         </div>
        </div>
   
@@ -25,6 +25,13 @@
             <p *ngIf="loginForm.controls['password'].errors?.['pattern']"> Minimum eight characters, at least one letter and one number</p>
           </div>
          </div>
+
+          <!-- ************invalid email or password************ -->
+          <div *ngIf="!valid" class="alert alert-danger w-50 m-auto" role="alert">
+           Invalid Email or password 
+          </div>
+
+
   
          <!-- ************login button************ -->
          <div class="w-100 text-center mt-4 pb-4">

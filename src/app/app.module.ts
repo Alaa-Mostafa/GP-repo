@@ -12,6 +12,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { CoursesDetailsComponent } from './Components/courses-details/courses-details.component';
+import { TracksDetailsComponent } from './Components/tracks-details/tracks-details.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { RegisterComponent } from './Components/register/register.component';
     HomeComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CoursesDetailsComponent,
+    TracksDetailsComponent
   ],
   imports: [
     BrowserModule,

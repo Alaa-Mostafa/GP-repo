@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Services/auth.service';
 import { ThemeService } from 'src/app/Services/themes.service'; 
 
 @Component({
@@ -7,13 +8,24 @@ import { ThemeService } from 'src/app/Services/themes.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  isLogegedIn:boolean=false;
  
   theme:any;
   themes_names:any;
 
-  constructor(private theme_service: ThemeService){}
+  constructor(private theme_service: ThemeService,private _AuthService:AuthService){}
 
   ngOnInit(): void {
+    this._AuthService.userData.subscribe(()=>{
+      if(this._AuthService.userData.getValue())
+      {
+        this.isLogegedIn=true;
+      }
+      else
+      {
+        this.isLogegedIn=false;
+      }
+    })
 
     this.theme_service.get_theme().subscribe({
       next:(data) => {        
@@ -33,6 +45,11 @@ export class NavbarComponent implements OnInit {
         this.theme = data;
       }
     });
+  }
+
+  logout()
+  {
+    this._AuthService.logout()
   }
 }
 
