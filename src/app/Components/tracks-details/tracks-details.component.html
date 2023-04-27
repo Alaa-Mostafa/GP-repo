@@ -1,16 +1,16 @@
-<div class="bg text-white" [ngStyle]="{'background-image': 'url(' + background_img_url + ')'}">
+<div  class="bg text-white" [ngStyle]="{'background-image': 'url(' + background_img_url + ')'}">
     <!-- <h1 class="text-center ">Frontend Development</h1> -->
     <div class="container-fluid pt-5"  style="background-color: rgba(1, 1, 1, 0.5);">
-    <h1 class="text-center">Frontend Development</h1>
+    <h1 class="text-center">{{track.name}}</h1>
 
       <div class="row" style="margin-top: -3%;">
         <div class="col-lg-3 col-sm-12 ms-lg-3" style="margin-top: 120px">
-          <img src="assets/tracks/themes/{{theme['name']}}/Frontend Development.gif" class="w-100 img1" [ngStyle]="{'border': theme['border']}" alt=""/>
+          <img src={{track_img}} class="w-100 img1" [ngStyle]="{'border': theme['border']}" alt=""/>
 
         </div>
         <div class="col-lg-3 col-sm-12 p-2 " style="margin-top: 140px">
-          <h2>Number of courses: 5</h2>
-          <h2>Price: free</h2>
+          <h2>Number of courses: {{courses_num}}</h2>
+          <h2>Price: {{track.price}}</h2>
           <h2>Finish the track to get</h2>
           <h2>your magical certificate!</h2>
         </div>
@@ -22,10 +22,11 @@
           <div class="col-lg-10 offset-lg-1">
             <h2>Description:</h2>
             <h2 class="mx-lg-5">
-              Every hero, queen, or character needs a place to live, and this place
-              needs to be built based on a special
+              {{track.description}}
+              <!-- Every hero, queen, or character needs a place to live, and this place
+              needs to be built based on a special -->
             </h2>
-            <h2 >
+            <!-- <h2 >
               design! it takes a creative builder and designer to build a home for
               our beloved characters, and no one would do
             </h2>
@@ -36,16 +37,13 @@
               technologies. Together, we will go from
             </h2>
             <h2>design to having our website ready to go!</h2>
-            <h2 class="mx-5">we are counting on you.</h2>
+            <h2 class="mx-5">we are counting on you.</h2> -->
           </div>
         </div>
         <div class="row align-items-end ms-5">
           <div class="col-lg-4 align-self-center"style="margin-bottom:400 px" >
               <h2 class="mx-2">Courses: </h2>
-                  <h4 class="mx-5">-HTML5</h4>
-                  <h4 class="mx-5">-CSS3</h4>
-                  <h4 class="mx-5">-JavaScript</h4>
-                  <h4 class="mx-5">-Angular</h4>
+                  <h4 class="mx-5" *ngFor="let course of track.courses">- {{course.name}}</h4>
                       
           <button class="btn btn-danger rounded-pill mt-4  w-100 p-2 text-center offset-lg-2" [ngStyle]="{'background-color': theme['color']}" >
               Start Track
@@ -59,6 +57,7 @@
             </div>
   </div>
     </div>
+
     <!-- <div class="container-fluid">
      
     </div> -->
