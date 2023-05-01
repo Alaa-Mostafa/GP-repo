@@ -21,6 +21,9 @@ export class ThemeService {
       this.theme.next(JSON.stringify(this.themes.find((th) => {return th['name'] === "frozen"})));
     else
       this.theme.next(localStorage.getItem('theme'));
+
+    console.log("alaa");
+    
   }
 
   set_theme(theme_name:string) {
