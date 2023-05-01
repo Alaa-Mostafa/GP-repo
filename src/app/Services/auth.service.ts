@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   userData=new BehaviorSubject(null);
+  // AdminRole:boolean=false
  
 
   constructor(private http:HttpClient,private _Router:Router) { 
@@ -29,6 +30,8 @@ export class AuthService {
     this.userData.next(decodedToken);
     console.log(this.userData)
     localStorage.setItem('userId',decodedToken.user_id);
+    localStorage.setItem("AdminRole",decodedToken.adminRole)
+    //console.log(decodedToken.adminRole)
   }
   register(registerData:any):Observable<any>
   {
@@ -43,6 +46,8 @@ export class AuthService {
   logout()
   {
     localStorage.removeItem('userToken');
+    localStorage.removeItem('userId')
+    localStorage.removeItem('AdminRole')
     this.userData.next(null);
     this._Router.navigateByUrl('login')
   }

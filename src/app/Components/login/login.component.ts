@@ -42,39 +42,24 @@ export class LoginComponent implements OnInit {
       return;
     }
      this._AuthService.login(this.loginForm.value).subscribe((response)=>{
-      
-      // try{
-      //   console.log(response)
-      // }
-      // catch(error)
-      // {
-      //    console.log(error)
-      // }
       if(response.message=='Login successfully')
       {
         console.log(response)
         localStorage.setItem('userToken',response['x-auth-token']);
         this._AuthService.saveUserData();
-        this._Router.navigateByUrl('home');
+        if(localStorage.getItem("AdminRole")=='true')
+        {
+          this._Router.navigateByUrl('adminDashboard')
+        }
+        else
+        {
+          this._Router.navigateByUrl('home');
+        }
+       
       }
-      // else
-      // {
-      //   console.log(response)
-      //   this.valid=false;
-      //   console.log(this.valid) 
-      // }
-      //console.log(data)
     },(err)=>{
       this.valid=false;
       console.log(err.error.message)
     })
-    // if(this.registerForm.invalid)
-    // {
-    //   return;
-    // }
-    // this._AuthService.register(this.registerForm.value).subscribe((data)=>{
-    //   console.log(data)
-    // })
-   // console.log(this.loginForm.value)
   }
 }

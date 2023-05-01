@@ -12,20 +12,29 @@ import { TracksDetailsComponent } from './Components/tracks-details/tracks-detai
 import { LessonsViewComponent } from './Components/lessons-view/lessons-view.component';
 import { CourseTracksViewComponent } from './Components/course-tracks-view/course-tracks-view.component';
 import { UserDashboardComponent } from './Components/user-dashboard/user-dashboard.component';
+import { TestadmindashboardComponent } from './Components/testadmindashboard/testadmindashboard.component';
+import { AdminAuthGuard } from './admin-auth.guard';
+import { LayoutComponent } from './Components/layout/layout.component';
+
 
 const routes: Routes = [
-  {path:'', redirectTo:'home', pathMatch:'full'},
-  {path:'home', component:HomeComponent},
-  {path:'register', component:RegisterComponent},
-  {path:'login', component:LoginComponent},
-  {path:"courses", component: CoursesComponent},
-  {path:"tracks", component:TracksComponent},
-  {path:"courses/:id", component:CoursesDetailsComponent},
-  {path:"tracks/:id", component:TracksDetailsComponent},
-  {path:"courses/:id/lessons", component:LessonsViewComponent},
-  {path:"courses/:id/courses", component:CourseTracksViewComponent},
-  {path:"userDashboard",component:UserDashboardComponent}
+ {path:'',component:LayoutComponent,
+ children:[ 
+ {path:'', redirectTo:'home', pathMatch:'full'},
+ {path:'home', component:HomeComponent},
+ {path:'register', component:RegisterComponent},
+ {path:'login', component:LoginComponent},
+ {path:"courses", component: CoursesComponent},
+ {path:"tracks", component:TracksComponent},
+ {path:"courses/:id", component:CoursesDetailsComponent},
+ {path:"tracks/:id", component:TracksDetailsComponent},
+ {path:"courses/:id/lessons", component:LessonsViewComponent},
+ {path:"courses/:id/courses", component:CourseTracksViewComponent},
+ {path:"userDashboard",component:UserDashboardComponent}
+]},
+{path:'adminDashboard',canActivate:[AdminAuthGuard],component:TestadmindashboardComponent}
 
+ 
   // {path:"courses",canActivate:[AuthGuard], component: CoursesComponent},
   // {path:"tracks",canActivate:[AuthGuard], component:TracksComponent}
 ];

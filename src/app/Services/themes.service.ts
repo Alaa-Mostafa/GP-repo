@@ -22,7 +22,7 @@ export class ThemeService {
     else
       this.theme.next(localStorage.getItem('theme'));
 
-    console.log("alaa");
+   
     
   }
 

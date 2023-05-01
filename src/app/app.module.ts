@@ -21,6 +21,8 @@ import { CourseTracksViewComponent } from './Components/course-tracks-view/cours
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { UserDashboardComponent } from './Components/user-dashboard/user-dashboard.component';
+import { TestadmindashboardComponent } from './Components/testadmindashboard/testadmindashboard.component';
+import { LayoutComponent } from './Components/layout/layout.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -40,7 +42,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     TracksDetailsComponent,
     LessonsViewComponent,
     CourseTracksViewComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    TestadmindashboardComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

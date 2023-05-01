@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
 
   }
   submitForm(){
-    console.log(this.registerForm)
+    //console.log(this.registerForm)
     if(this.registerForm.invalid)
     {
       return;
