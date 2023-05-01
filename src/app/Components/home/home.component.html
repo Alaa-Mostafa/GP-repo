@@ -22,14 +22,15 @@
 
       </div>
       <h1 class="position-absolute top-0 text-center font-buxton-sketch mt-3 font-white">
-        what is Magicode
+        {{ "what is Magicode" | translate }}
       </h1>
+      
       <h2 class="position-absolute text-center font-comic-sans font-white" style="top: 35%">
-        Website for teaching Kids programming skills.
-        <h2>Join us through our magical and exciting learning journey</h2>
+        {{ "Website for teaching Kids programming skills." | translate }}
+        <h2>{{ "Join us through our magical and exciting learning journey" | translate }}</h2>
       </h2>
       <h2 class="position-absolute text-center font-comic-sans font-white fst-italic" style="top: 75%">
-        Future Starts Now!
+        {{ "Future Starts Now!" | translate }}
       </h2>
 
     </div>
@@ -37,7 +38,7 @@
   <div class="container">
     <!-- img2 -->
     <div class="row">
-      <h1 class="mt-3 hh1" [ngStyle]="{'color': theme['color']}">Why Our Website?</h1>
+      <h1 class="mt-3 hh1 font-buxton-sketch" [ngStyle]="{'color': theme['color']}">{{"Why Our Website?" | translate}} </h1>
       <br />
       <div class="col-12 h-25 p-0 mt-3 d1 d-flex flex-row mb-5" [ngStyle]="{'background-color': theme['divBackground']}">
         <div class="row mx-0">
@@ -46,17 +47,17 @@
             alt="2.jpg"
             class="img-fluid px-0 col-6 img2"
           />
-          <div class="text-center col-6 mt-5 p-4 p-md-0">
+          <div class="text-center col-6 mt-5 p-4 p-md-0 font-buxton-sketch">
             <br />
             <br />
-            <h2 class="font-white font-buxton-sketch">Videos and practices to prepare</h2>
-            <h2 class="font-white font-buxton-sketch">our future tech leaders</h2>
+            <h2 class="font-white">{{"Videos and practices to prepare" | translate}}</h2>
+            <h2 class="font-white">{{"our future tech leaders" | translate}}</h2>
             <button
               class="btn rounded-pill bttn2 mt-3 font-comic-sans font-white"
               [ngStyle]="{'background-color': theme['color']}"
               (click)="navigateToCourses()"
             >
-              Check Our Courses
+              {{"Check Our Courses" | translate}}
             </button>
           </div>
         </div>
@@ -67,15 +68,15 @@
       <div class="col-12 h-25 p-0 mt-3 d1 d-flex flex-row mb-5" [ngStyle]="{'background-color': theme['divBackground']}">
         <div class="row mx-0">
           <div class="text-center col-6 mt-5 p-4">
-            <h2 class="font-white font-buxton-sketch">Moving fast forward through</h2>
-            <h2 class="font-white font-buxton-sketch">our tracks and help kids</h2>
-            <h2 class="font-white font-buxton-sketch">growing their skills</h2>
+            <h2 class="font-white font-buxton-sketch">{{"Moving fast forward through" | translate}}</h2>
+            <h2 class="font-white font-buxton-sketch">{{"our tracks and help kids" | translate}}</h2>
+            <h2 class="font-white font-buxton-sketch">{{"growing their skills" | translate}}</h2>
             <button
               class="btn rounded-pill bttn2 mt-3 font-comic-sans font-white"
               [ngStyle]="{'background-color': theme['color']}"
               (click)="navigateToTracks()"
             >
-              Check Our Tracks
+              {{"Check Our Tracks" | translate}}
             </button>
           </div>
           <img
@@ -97,9 +98,9 @@
             class="img-fluid px-0 col-6 img2"
           />
           <div class="text-center col-6 mt-5 p-5">
-            <h2 class="font-white font-buxton-sketch">Exciting Rewards and</h2>
-            <h2 class="font-white font-buxton-sketch">prizes on finishing lessons</h2>
-            <h2 class="font-white font-buxton-sketch">and courses successfully</h2>
+            <h2 class="font-white font-buxton-sketch">{{"Exciting Rewards and" | translate}}</h2>
+            <h2 class="font-white font-buxton-sketch">{{"prizes on finishing lessons" | translate}}</h2>
+            <h2 class="font-white font-buxton-sketch">{{"and courses successfully" | translate}}</h2>
           </div>
         </div>
       </div>
@@ -124,7 +125,7 @@
       ></div>
   
       <h2 class="position-absolute text-center font-white font-buxton-sketch" style="top: 45%">
-        Magical themes to customize kids'profiles
+        {{"Magical themes to customize kids'profiles" | translate}}
       </h2>
     </div>
   </div>
@@ -149,9 +150,9 @@
       >
 
       </div>
-      <h1 class="position-absolute top-0 text-center font-white font-buxton-sketch mt-5">Ready to go?</h1>
+      <h1 class="position-absolute top-0 text-center font-white font-buxton-sketch mt-5">{{"Ready to go?" | translate}}</h1>
       <h3 class="position-absolute text-center font-white font-comic-sans mt-3" style="top: 35%">
-        Sign up and start the magical journey
+        {{"Sign up and start the magical journey" | translate}}
       </h3>
   
       <button
@@ -159,7 +160,7 @@
         style="background-color: rgba(1,1,1,0.8);"
         (click)="navigateToSignup()"
       >
-        Sign up
+      {{ "Sign up" | translate }}
       </button>
     </div>
   </div>  

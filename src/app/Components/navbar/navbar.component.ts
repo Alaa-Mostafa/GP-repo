@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
   theme:any;
   themes_names:any;
 
+  lang:any;
+
   constructor(private theme_service: ThemeService,private _AuthService:AuthService){}
 
   ngOnInit(): void {
@@ -27,29 +29,33 @@ export class NavbarComponent implements OnInit {
       }
     })
 
+
     this.theme_service.get_theme().subscribe({
       next:(data) => {        
-        this.theme = data;  
-      }
-    });
-
-    this.themes_names = this.theme_service.get_all_themes();   
-  }
-
-  setTheme = (chosen_theme:string) => {
-    
-    this.theme_service.set_theme(chosen_theme);
-
-    this.theme_service.get_theme().subscribe({
-      next:(data) => {
         this.theme = data;
       }
     });
+
+    this.themes_names = this.theme_service.get_all_themes();
+    
+    this.lang = localStorage.getItem("lang") || "en";
+  }
+
+  // -----------------------------------------------------------------
+
+  setTheme = (chosen_theme:string) => {
+    this.theme_service.set_theme(chosen_theme);
   }
 
   logout()
   {
     this._AuthService.logout()
+  }
+
+  //change lang
+  changeLang(lang:any){
+    localStorage.setItem('lang',lang.value);
+    window.location.reload();
   }
 }
 

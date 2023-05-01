@@ -1,0 +1,70 @@
+<div class="  bg-light dashboard min-vh-100 text-white">
+    <div class="layer min-vh-100">
+       <!-- *********total courses and tracks************ -->
+        <div class="container  pt-5 pb-5">
+            <div class="row">
+            <div class=" col-12 col-lg-6  text-center ">
+            <div class="bg-warning bg-opacity-25 rounded-5 w-75 ms-auto me-0">
+                <i class="bi bi-bar-chart-line-fill d-inline-block fs-1 text-white"></i>
+                <h3>Total Courses</h3>
+                <h3 class="pb-2">{{courses.length}}</h3>
+            </div>
+            </div>
+
+            <div class=" col-12 col-lg-6  text-center">
+                <div class=" bg-opacity-25 rounded-5 w-75 " style="background-color: rgba(217, 90, 43,0.6);">
+                    <i class="bi bi-clipboard-pulse d-inline-block fs-1 text-white"></i>
+                <h3>Total Tracks</h3>
+                <h3 class="pb-2">{{tracks.length}}</h3>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- *********course section************ -->
+
+        <div class="container pt-5">
+            <div class="row">
+                <div class=" col-12 col-lg-6  ">
+                   <div class="ms-5 ps-5">
+                    <h1 class="ms-5 ps-5">Courses:</h1>
+                    <ul class="list-unstyled ms-5 ps-5">
+                        <li class="m-2 fs-5"  *ngFor="let course of courses">-{{course.name}}</li>
+                        <!-- <li class="m-2 fs-5">-Web-Development</li>
+                        <li class="m-2 fs-5">-Ai</li>
+                        <li class="m-2 fs-5">-3D Animation</li> -->
+                    </ul>
+                   </div>
+                </div>
+                <div class="col-12 col-lg-6 p-2">
+                    <div class="w-75 m-auto">
+                        <canvas id="myChart1"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+       <!-- *********tracks section************ -->
+
+       <div class="container pt-5">
+        <div class="row">
+            <div class="col-12 col-lg-6 p-2 ps-5">
+                <div class="w-75 m-auto ps-2">
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+            <div class=" col-12 col-lg-6  ">
+               <div class="ms-5 ps-5">
+                <h1 class="ms-5 ps-5">Tracks:</h1>
+                <ul class="list-unstyled ms-5 ps-5">
+                    <li class="m-2 fs-5" *ngFor="let track of tracks">-{{track.name}}</li>
+                    <!-- <li class="m-2 fs-5">-</li> -->
+                    <!-- <li class="m-2 fs-5">-Ai</li>
+                    <li class="m-2 fs-5">-3D Animation</li> -->
+                </ul>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

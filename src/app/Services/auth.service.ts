@@ -28,6 +28,7 @@ export class AuthService {
     let decodedToken:any=jwtDecode(encodedToken);
     this.userData.next(decodedToken);
     console.log(this.userData)
+    localStorage.setItem('userId',decodedToken.user_id);
   }
   register(registerData:any):Observable<any>
   {

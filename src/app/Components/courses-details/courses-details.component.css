@@ -37,3 +37,24 @@
     padding-left: 100px;
     padding-right: 100px;
 }
+
+
+
+
+
+
+i {
+    position: relative;
+    display: inline-block;
+    font-size: 2.5rem;
+    padding-right: 0.1rem;
+    stroke-width: 2px;
+    color: #d3d3d3;
+}
+
+.filled {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

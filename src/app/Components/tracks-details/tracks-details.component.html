@@ -21,23 +21,9 @@
       <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <h2>Description:</h2>
-            <h2 class="mx-lg-5">
-              {{track.description}}
-              <!-- Every hero, queen, or character needs a place to live, and this place
-              needs to be built based on a special -->
-            </h2>
-            <!-- <h2 >
-              design! it takes a creative builder and designer to build a home for
-              our beloved characters, and no one would do
-            </h2>
-            <h2>a great job better then you!</h2>
-            <h2 class="mx-lg-5">welcome to frontend development track!</h2>
-            <h2 class="mx-lg-5">
-              where we build this lovely home "website" using cool tools and
-              technologies. Together, we will go from
-            </h2>
-            <h2>design to having our website ready to go!</h2>
-            <h2 class="mx-5">we are counting on you.</h2> -->
+            <h3 class="mx-lg-5" *ngFor="let desc of track_description">
+              {{desc}}
+            </h3>
           </div>
         </div>
         <div class="row align-items-end ms-5">
@@ -45,7 +31,7 @@
               <h2 class="mx-2">Courses: </h2>
                   <h4 class="mx-5" *ngFor="let course of track.courses">- {{course.name}}</h4>
                       
-          <button class="btn btn-danger rounded-pill mt-4  w-100 p-2 text-center offset-lg-2" [ngStyle]="{'background-color': theme['color']}" >
+          <button (click)="enroll_track()" class="btn btn-danger rounded-pill mt-4  w-100 p-2 text-center offset-lg-2" [ngStyle]="{'background-color': theme['color']}">
               Start Track
             </button>
           </div>

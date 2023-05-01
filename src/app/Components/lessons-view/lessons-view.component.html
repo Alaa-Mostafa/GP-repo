@@ -1,0 +1,25 @@
+<div class="container-fluid p-0 background_image" [ngStyle]="{'background-image': 'url('+ background_img_url +')'}">
+    <div class="row container-fluid w-100 h-100 m-0 black_layer position-relative">
+
+        <h2 class="mt-7 text-center text-light font-buxton-sketch"> {{course.name}} </h2>
+
+        <div class="d-flex container-fluid justify-content-between ps-5">
+            <div class="ms-5">
+                <video src={{current_lesson.video_Lesson}} controls class="rounded-4" [ngStyle]="{'box-shadow':'0 0 10px #fff'}"></video>
+                <h4 class="text-light font-comic-sans text-capitalize mt-4">{{current_lesson.name}} - {{current_lesson.description}}</h4>
+            </div>
+    
+            <div class="text-light position-absolute bottom-0 end-0 d-flex justify-content-center h-75 rounded-start-4 pt-3 bg-dark bg-opacity-75" [ngStyle] = "{'width':'30%'}">
+                <div class="w-100 d-flex flex-column overflow-y-auto h-50">
+                    <div class="lesson_hover text-capitalize border-bottom border-secondary d-flex justify-content-between align-items-center px-5 py-4 fs-5 w-100" [ngStyle]="{'height': '25%', 'cursor': 'pointer'}" *ngFor="let lesson of lessons" (click)="view_lesson(lesson._id)">
+                        {{lesson.name}}
+                        <i class="bi bi-check-square"></i>
+                    </div>
+                </div>
+
+                <img class="row h-50 position-absolute bottom-0" src="assets/themes/{{theme['name']}}/lessons_view.jpg" alt="">
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -8,12 +8,17 @@
     src: url("./assets/fonts/ComicSansMS3.ttf");
 }
 
+@font-face {
+    font-family: "noto-sans-arabic";
+    src: url("./assets/fonts/NotoSansArabic.ttf");
+}
+
 .font-buxton-sketch {
-    font-family: "buxton-sketch" !important;
+    font-family: "buxton-sketch", "noto-sans-arabic" !important;
 }
 
 .font-comic-sans {
-    font-family: "comic-sans" !important;
+    font-family: "comic-sans", "noto-sans-arabic" !important;
 }
 
 .w-40 {

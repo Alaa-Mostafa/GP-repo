@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    font-family:"buxton-sketch" ;
+    /* font-family:"buxton-sketch" ; */
     box-sizing: border-box;
 }
 
@@ -28,5 +28,5 @@ form button
 {
     /* background-color: #D95A2B; */
     color: white;
-    font-family: "comic-sans";
+    /* font-family: "comic-sans"; */
 }

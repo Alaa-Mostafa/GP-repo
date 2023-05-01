@@ -23,8 +23,6 @@ export class CoursesComponent implements OnInit {
     this.myService.get_all_courses().subscribe({
       next: (data) => {
         this.courses = data;
-        console.log(data);
-        
         this.set_courses_theme_images();
       },
       error: (err) => {
@@ -35,7 +33,7 @@ export class CoursesComponent implements OnInit {
 
     this.theme_service.get_theme().subscribe({
       next:(data) => {
-        this.theme = data;
+        this.theme = JSON.parse(data);
         this.background_img_url = "assets/themes/" + this.theme['name'] + "/courses_tracks_bg.jpg";
         this.set_courses_theme_images();
       }

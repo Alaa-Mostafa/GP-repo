@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.theme_service.get_theme().subscribe({
       next:(data) => {
-        this.theme = data;
+        this.theme = JSON.parse(data);
         this.background_img_url = "assets/themes/" + this.theme['name'] + "/signup_login_bg.jpg";
       }
     });

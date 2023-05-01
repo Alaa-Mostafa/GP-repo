@@ -12,17 +12,23 @@ export class ThemeService {
     { name:"spiderman", color: "#D92332", textColor: "#FCFCFC", border: "5px solid #D92332", background:"#0D0D0D", divBackground: "#0D0D0D"}
   ];
 
-  private theme = new BehaviorSubject <any>(this.themes.find((th) => {return th['name'] === "frozen"}));
+  private theme = new BehaviorSubject <any>(localStorage.getItem('theme'));
 
   constructor() {
-    this.theme.next(this.themes.find((th) => {return th['name'] === "frozen"}));
+    let th = localStorage.getItem('theme');
+
+    if(!th)
+      this.theme.next(JSON.stringify(this.themes.find((th) => {return th['name'] === "frozen"})));
+    else
+      this.theme.next(localStorage.getItem('theme'));
   }
 
   set_theme(theme_name:string) {
-    this.theme.next(this.themes.find((th) => {return th['name'] === theme_name}));
+    localStorage.setItem('theme',JSON.stringify(this.themes.find((th) => {return th['name'] === theme_name})));
+    this.theme.next(localStorage.getItem('theme'));
   }
 
-  get_theme(){
+  get_theme(){   
     return (this.theme);
   }
 

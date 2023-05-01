@@ -18,9 +18,10 @@ export class HomeComponent implements OnInit {
   bg_img_url_6 = "";
 
   ngOnInit(): void {
+
     this.theme_service.get_theme().subscribe({
       next:(data) => {
-        this.theme = data;
+        this.theme = JSON.parse(data);
 
         this.bg_img_url_1 = "assets/themes/" + this.theme['name'] + "/home-1.jpg";
         this.bg_img_url_5 = "assets/themes/" + this.theme['name'] + "/home-5.jpg";
