@@ -18,8 +18,12 @@ export class UserDashboardComponent implements OnInit {
    tracks:{name:string,percentComplete:string}[]=[]
    
    studentCourses:any=[]
+<<<<<<< HEAD
    //console.log("hadeer1kml")
   
+=======
+   console.log("hadeer1kml")
+>>>>>>> e1dde54ab0008af6f925c0194623256a1301e337
   //  totalMinOfCourseLessons:any=0
   //  listenedMinOfCourseLessons:any=0
 
